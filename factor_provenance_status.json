@@ -1,0 +1,16 @@
+{
+  "state": "DAILY_LAST_SAME_MONTH_RELABELED_PLUS_ONE_V1",
+  "conclusion": "Ashare_new and rcykc_multi are daily-derived panels. The merger selects the final daily observation within source month S and labels it as month-end S. Under the confirmed policy, that row is available for holding month S+1 and must be relabeled before training.",
+  "scope": "All 103 features in old(58)+history-rcykc-multi(45).parquet",
+  "evidence": {
+    "TALib131.py": "1B85540F9440F14B882D8048174C09370E49A2655EF2DBBBBEF891854BD6EBDE",
+    "gf125.py": "BF43D16A4DF74841EEC36F7BDFFC851F58B6A8DD0858D7073EC9E95508709DCA",
+    "merge_factor_sets.py": "E7C9DC65F1F39CE8C2ACBCF0AC300243949047AEBC4008EE8F753A122031A345",
+    "merge_combos.py": "9A8D5CFA7D255C93DD799662F649F561B67E6810C632727E6E341EDD5CADE986",
+    "full_new.py": "00F0897696D4E4B72C464F1B2A01AF66B11EF7D3C25F0D26A5A28C7C26CFF5B8"
+  },
+  "statistical_flags": {
+    "TALib131_PLUS_DI": {"same_month_mean_correlation": 0.6265640186190415, "next_month_mean_correlation": -0.09057168382242177, "months_same": 68, "months_next": 67},
+    "gf125_ARBR_AR": {"same_month_mean_correlation": 0.5128057500617771, "next_month_mean_correlation": -0.08447368975704565, "months_same": 68, "months_next": 67}
+  }
+}

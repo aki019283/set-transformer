@@ -1,0 +1,10 @@
+{
+  "experiment": "dcn_set_s42_v1",
+  "ft_panel_sha256": "5c828b7fdf1087bcd8039d1140e7eb5bca16157c28d44b72c86198c4de3934ae",
+  "training": "One joint regressor, seed 42, same rank64 conversion, price-derived labels, rolling windows, embargo checks and warm start as the FT study. 2021-01 through 2026-08 holding months.",
+  "architecture": "Two rank-16 DCN-V2 crosses and a 64/32 ReLU branch; one learned projection per feature family; 8 family tokens, width 16, 2 heads, 4 inducing points, one ISAB and one PMA pooling seed. Linear joint readout. All 103 factors retained.",
+  "timing": "Source month-end observation, following holding month. Label from first close to next first close. Disclosure lags beyond source-date provenance remain unaudited.",
+  "comparison": "Historical M0 pool and fees, Group10, 22 consecutive return months 2024-02 to 2025-11. historical_m0_next_flags reproduces legacy month-end bookkeeping with its known next-status timing limitation. repriced_net uses same-date flags, first-session close to next first-session close on fixed holdings and legacy costs. Compare against the verified FT 1.477 only on repriced_net. Recheck stock keys and reproduce the 22 FT returns first.",
+  "metrics": "Monthly standard net Sharpe at 2% annual effective risk-free, CAGR and maximum drawdown on 22 months; monthly Pearson and Spearman IC on available labels with coverage reported over all 68 windows.",
+  "scope": "Single seed, repeatedly inspected history. No prospective performance or speedup claim."
+}

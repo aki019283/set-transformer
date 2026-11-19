@@ -1,0 +1,6 @@
+{
+  "state": "REBUILD_FROM_PRICES_V3_SOURCE_MONTH_PLUS_ONE",
+  "legacy_target": "REJECTED_NEXT_MONTH",
+  "audit": "Cloud audit 20261014_141944: 582/582 sampled labels match following-month returns; 12 sampled source columns match same-month factors.",
+  "policy": "Relabel every daily-derived source month S to holding month S+1, then reconstruct first-session-close holding-month returns. Do not shift archived predictions or reuse archived checkpoints. Runtime availability/coverage checks remain mandatory."
+}
