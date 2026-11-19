@@ -1,6 +1,6 @@
 # DCN-V2 + Set Transformer 多因子选股
 
-这是 dcn_set_s42_v1 历史实验的中文注释版。模型接收一只股票在一个截面上的 103 个因子，输出一个连续分数。分数用于在同月股票池中排序，不能直接读作预期收益率。历史实验采用 seed 42。与同一输入面板的 FT-Transformer 比较，修正估值后的标准年化夏普分别为 **1.364730 和 1.476660**。
+这是 dcn_set_s42_v1 历史实验的中文注释版。模型接收一只股票在一个截面上的 103 个因子，输出一个连续分数。分数用于在同月股票池中排序，历史实验采用 seed 42。与同一输入面板的 FT-Transformer 比较，修正估值后的标准年化夏普分别为 **1.364730 和 1.476660**。
 
 ## 模型如何产生一个分数
 
@@ -12,7 +12,7 @@
 
 最后拼接 103+32+16=151 维，线性层输出一个分数。族内每个输入位置对应固定因子，因此训练与推断必须沿用同一列序。对应实现见 [model.py](model.py) 和 [set_block.py](set_block.py)。
 
-交叉层参考 Wang 等的 [DCN V2](https://arxiv.org/abs/2008.13535)，集合分支参考 Lee 等的 [Set Transformer](https://proceedings.mlr.press/v97/lee19d.html)。按金融因子族生成 token、三路拼接和选股目标是本实验设计；本实验没有使用 DCN-Mix 专家门控。
+交叉层参考 Wang 等的 [DCN V2](https://arxiv.org/abs/2008.13535)，集合分支参考 Lee 等的 [Set Transformer](https://proceedings.mlr.press/v97/lee19d.html)。按金融因子族生成 token、三路拼接和选股目标是本实验设计。
 
 ## 数据、标签和训练
 
@@ -54,8 +54,7 @@ Smoke 只跑两个短窗口。完整比较前，从原实验包的 reference 目
 .\run.ps1 -Project 'F:\aki\mlp_factor' -Mode Full
 ~~~
 
-公开版默认写入项目下 data/experiments/dcn_set_s42_public_v1。训练入口会保存源码和输入文件哈希；中文注释改变源码哈希，因此使用独立输出目录。重复执行同一命令时，程序核验已提交窗口，再继续后续窗口。
-
+公开版默认写入项目下 data/experiments/dcn_set_s42_public_v1。
 ## 到哪里看结果
 
 |相对 full 的位置|用途|
